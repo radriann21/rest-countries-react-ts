@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Light';
+  src: local('Nunito Sans'), url('./assets/fonts/NunitoSans_7pt-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SemiBold';
+  src: local('Nunito Sans'), url('./assets/fonts/NunitoSans_7pt-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bold';
+  src: local('Nunito Sans'), url('./assets/fonts/NunitoSans_7pt-Bold.ttf') format('truetype');
+}
