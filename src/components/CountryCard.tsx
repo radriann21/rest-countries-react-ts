@@ -6,23 +6,23 @@ type CountryCardProps = {
 
 export const CountryCard = ({ country }: CountryCardProps) => {
   return (
-    <article className="rounded-md shadow-md w-full flex flex-col bg-white font-customLight text-light-very-dark-blue">
+    <article className="rounded-md shadow-md w-full flex flex-col bg-white font-customLight text-light-very-dark-blue dark:bg-dark-dark-blue">
       <div className="w-full h-[180px]">
         <img className="rounded-t-md w-full h-full" src={country.flags.png} alt={country.name.common} />
       </div>
       <div className="p-6">
-        <h3 className="text-black font-customBold text-xl">{country.name.common}</h3>
+        <h3 className="text-black font-customBold text-xl dark:text-white">{country.name.common}</h3>
         <div className="mt-4">
-          <p>
-            <span className="font-customSemiBold">Population: </span>
+          <p className="dark:text-dark-card-text-dark">
+            <span className="font-customSemiBold dark:text-white">Population: </span>
             {country.population.toLocaleString()}
           </p>
-          <p>
-            <span className="font-customSemiBold">Region: </span>
+          <p className="dark:text-dark-card-text-dark">
+            <span className="font-customSemiBold dark:text-white">Region: </span>
             {country.region}
           </p>
-          <p>
-            <span className="font-customSemiBold">Capital: </span>
+          <p className="dark:text-dark-card-text-dark">
+            <span className="font-customSemiBold dark:text-white">Capital: </span>
             {country.capital}
           </p>
         </div>

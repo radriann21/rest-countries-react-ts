@@ -5,6 +5,7 @@ import { getAllCountries } from "../services/getAllCountries";
 
 const initialState: initialStateType | null = {
   countries: [],
+  filteredCountries: [],
   loading: false,
   error: null
 }
@@ -31,6 +32,7 @@ export const CountriesSlice = createSlice({
     builder.addCase(fetchCountries.fulfilled, (state, action: PayloadAction<CountryMain[]>) => {
       state.loading = false
       state.countries = action.payload
+      state.filteredCountries = action.payload
     })
     builder.addCase(fetchCountries.rejected, (state, action) => {
       state.loading = false
@@ -38,8 +40,15 @@ export const CountriesSlice = createSlice({
     })
   },
   reducers: {
-
+    filterByName: (state, action: PayloadAction<string>) => {
+      state.filteredCountries = state.countries.filter((country) => country.name.common.toLowerCase().includes(action.payload.toLowerCase()))
+    },
+    filterByRegion: (state, action: PayloadAction<string>) => {
+      state.filteredCountries = state.countries.filter((country) => country.region.toLowerCase().includes(action.payload.toLowerCase()))
+    }
   }
 })
+
+export const { filterByName, filterByRegion } = CountriesSlice.actions
 
 export default CountriesSlice.reducer

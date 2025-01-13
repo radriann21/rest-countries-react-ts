@@ -13,6 +13,7 @@ export type CountryMain = {
 
 export type initialStateType = {
   countries: CountryMain[],
+  filteredCountries: CountryMain[],
   loading: boolean,
   error: string | null
 }

@@ -5,7 +5,7 @@ import { fetchCountries } from "../app/CountriesSlice"
 import { ListOfCountries } from "./ListOfCountries"
 
 export const DisplayCountries = () => {
-  const countries = useSelector((state: RootState) => state.countries)
+  const filteredCountries = useSelector((state: RootState) => state.filteredCountries)
   const loading = useSelector((state: RootState) => state.loading)
   const error = useSelector((state: RootState) => state.error)
   const dispatch = useDispatch<AppDispatch>()
@@ -21,14 +21,16 @@ export const DisplayCountries = () => {
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       )}
-      {error && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-customBold text-sm text-red-600">Error in loading</span>
-        </div>
-      )}
       {
-        countries
-          ? (<ListOfCountries countries={countries} />)
+        error !== null
+          ? (<div className="absolute inset-0 flex items-center justify-center">
+            <span className="font-customBold text-sm text-red-600">Error in loading</span>
+          </div>)
+          : null
+      }
+      {
+        filteredCountries
+          ? (<ListOfCountries countries={filteredCountries} />)
           : null
       }
     </section>
