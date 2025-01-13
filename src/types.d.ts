@@ -1,5 +1,7 @@
 export type CountryMain = {
-  name: string,
+  name: {
+    common: string
+  },
   capital: string[],
   region: string,
   population: number,

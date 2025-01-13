@@ -16,7 +16,6 @@ export const fetchCountries = createAsyncThunk(
     if ('error' in response) {
       throw new Error(response.error)
     }
-    console.log(response)
     return response
   }
 )
