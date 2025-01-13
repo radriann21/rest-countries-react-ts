@@ -14,5 +14,5 @@
 
 @font-face {
   font-family: 'Bold';
-  src: local('Nunito Sans'), url('./assets/fonts/NunitoSans_7pt-Bold.ttf') format('truetype');
+  src: local('Nunito Sans'), url('./assets/fonts/NunitoSans_7pt-ExtraBold.ttf') format('truetype');
 }
