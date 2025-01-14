@@ -1,4 +1,4 @@
-import type { CountryMain } from "../types"
+import type { CountryMain } from "../types/types"
 import { CountryCard } from "./CountryCard"
 
 type ListOfCountriesProps = {

@@ -1,11 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { CountryMain, initialStateType } from "../types";
+import type { CountryMain, initialStateType, CountryDetail } from "../types/types";
 import { getAllCountries } from "../services/getAllCountries";
+import { getCountry } from "../services/getCountry";
 
 const initialState: initialStateType | null = {
   countries: [],
   filteredCountries: [],
+  country: null,
   loading: false,
   error: null
 }
@@ -14,6 +16,17 @@ export const fetchCountries = createAsyncThunk(
   'countries/fetchAllCountries',
   async () => {
     const response = await getAllCountries()
+    if ('error' in response) {
+      throw new Error(response.error)
+    }
+    return response
+  }
+)
+
+export const fetchCountry = createAsyncThunk(
+  'country/fetchCountry',
+  async (country: string) => {
+    const response = await getCountry(country)
     if ('error' in response) {
       throw new Error(response.error)
     }
@@ -38,6 +51,19 @@ export const CountriesSlice = createSlice({
       state.loading = false
       state.error = action.error.message || 'Error'
     })
+    builder.addCase(fetchCountry.pending, (state) => {
+      state.error = null
+      state.loading = true
+    })
+    builder.addCase(fetchCountry.fulfilled, (state, action: PayloadAction<CountryDetail>) => {
+      state.loading = false
+      state.error = null
+      state.country = action.payload
+    })
+    builder.addCase(fetchCountry.rejected, (state, action) => {
+      state.loading = false
+      state.error = action.error.message || 'Error'
+    })
   },
   reducers: {
     filterByName: (state, action: PayloadAction<string>) => {
@@ -50,5 +76,5 @@ export const CountriesSlice = createSlice({
 })
 
 export const { filterByName, filterByRegion } = CountriesSlice.actions
-
 export default CountriesSlice.reducer
+

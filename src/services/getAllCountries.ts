@@ -1,4 +1,4 @@
-import type { CountryMain, customError } from "../types"
+import type { CountryMain, customError } from "../types/types"
 
 
 export const getAllCountries = async (): Promise<CountryMain[] | customError> => {
