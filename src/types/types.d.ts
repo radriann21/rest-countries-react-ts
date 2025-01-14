@@ -8,15 +8,16 @@ export type CountryMain = {
   flags: {
     png: string,
     svg: string
-  }
+  },
+  cca3: string
 }
 
 export type CountryDetail = {
   name: {
     common: string,
     nativeName: {
-      lang: {
-        official: string
+      [key: string]: {
+        official: string[]
       }
     }
   },
@@ -34,8 +35,10 @@ export type CountryDetail = {
   region: string,
   subregion: string,
   languages: {
-    [key: string]: string
-  };
+    lang: string
+  }
+  borders: string[],
+  cca3: string
 }
 
 export type initialStateType = {

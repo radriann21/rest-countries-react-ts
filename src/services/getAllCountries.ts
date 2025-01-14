@@ -18,8 +18,8 @@ export const getAllCountries = async (): Promise<CountryMain[] | customError> =>
     }
 
     const countries: CountryMain[] = data.map((country) => {
-      const { name, capital, region, population, flags } = country
-      return { name, capital, region, population, flags }
+      const { name, capital, region, population, flags, cca3 } = country
+      return { name, capital, region, population, flags, cca3 }
     })
 
     return countries

@@ -9,7 +9,7 @@ export const ListOfCountries = ({ countries }: ListOfCountriesProps) => {
   return (
     <>
       {countries.map((country) => (
-        <CountryCard key={crypto.randomUUID()} country={country} />
+        <CountryCard key={country.cca3} country={country} />
       ))}
     </>
   )
