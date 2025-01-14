@@ -27,30 +27,30 @@ export const CountryDetailsComponent = ({ country }: CountryDetailsComponentProp
           </h1>
           <div className="mt-8 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 items-start">
             <div className="space-y-2 text-sm">
-              <p className="font-customLight text-light-very-dark-blue dark:text-dark-card-text-dark">
+              <p className="font-customLight text-light-very-dark-blue dark:text-white">
                 <span className="font-customBold">Native Name: </span>
                 {nativeNameKey.length > 0 ? country.name.nativeName[nativeNameKey[0]].official : 'N/A'}
               </p>
-              <p className="font-customLight text-light-very-dark-blue dark:text-dark-card-text-dark">
+              <p className="font-customLight text-light-very-dark-blue dark:text-white">
                 <span className="font-customBold">Population: </span>
                 {country.population.toLocaleString()}
               </p>
-              <p className="font-customLight text-light-very-dark-blue dark:text-dark-card-text-dark">
+              <p className="font-customLight text-light-very-dark-blue dark:text-white">
                 <span className="font-customBold">Region: </span>
                 {country.region}
               </p>
-              <p className="font-customLight text-light-very-dark-blue dark:text-dark-card-text-dark">
+              <p className="font-customLight text-light-very-dark-blue dark:text-white">
                 <span className="font-customBold">Subregion: </span>
                 {country.subregion}
               </p>
             </div>
             <div className="space-y-2 text-sm">
-              <p className="font-customLight text-light-very-dark-blue dark:text-dark-card-text-dark">
+              <p className="font-customLight text-light-very-dark-blue dark:text-white">
                 <span className="font-customBold">Top Level Domain: </span>
                 {country.tld.join(',')}
               </p>
-              <p className="font-customLight text-light-very-dark-blue dark:text-dark-card-text-dark">
-                <span className="font-customBold text-light-very-dark-blue dark:text-dark-card-text-dark">Currencies: </span>
+              <p className="font-customLight text-light-very-dark-blue dark:text-white">
+                <span className="font-customBold text-light-very-dark-blue dark:text-white">Currencies: </span>
                 {Object.values(country.currencies).map((currency, index) => (
                   <span key={index}>
                     {currency.name}
@@ -58,8 +58,8 @@ export const CountryDetailsComponent = ({ country }: CountryDetailsComponentProp
                   </span>
                 ))}
               </p>
-              <p className="font-customLight text-light-very-dark-blue dark:text-dark-card-text-dark">
-                <span className="font-customBold text-light-very-dark-blue dark:text-dark-card-text-dark">Languages: </span>
+              <p className="font-customLight text-light-very-dark-blue dark:text-white">
+                <span className="font-customBold text-light-very-dark-blue dark:text-white">Languages: </span>
                 {
                   languages.map((lang, index) => (
                     <span key={index}>

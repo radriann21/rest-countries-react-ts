@@ -3,19 +3,24 @@ import { Sun } from "./icons/Sun";
 import { Moon } from "./icons/Moon";
 
 export const ToogleMode = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('mode');
+    return savedMode ? JSON.parse(savedMode) : false;
+  })
 
   const toggleMode = () => {
-    setDarkMode(!darkMode);
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem('mode', JSON.stringify(newMode));
   };
 
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.classList.add('dark')
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove('dark');
     }
-  }, [darkMode]);
+  }, [darkMode])
 
   return (
     <button className="btn btn-ghost" onClick={toggleMode}>
