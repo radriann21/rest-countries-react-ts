@@ -9,7 +9,7 @@ const initialState: initialStateType | null = {
   filteredCountries: [],
   country: null,
   loading: false,
-  error: null
+  error: null,
 }
 
 export const fetchCountries = createAsyncThunk(
@@ -67,11 +67,15 @@ export const CountriesSlice = createSlice({
   },
   reducers: {
     filterByName: (state, action: PayloadAction<string>) => {
-      state.filteredCountries = state.countries.filter((country) => country.name.common.toLowerCase().includes(action.payload.toLowerCase()))
+      state.filteredCountries = state.countries.filter((country) =>
+        country.name.common.toLowerCase().includes(action.payload.toLowerCase())
+      );
     },
     filterByRegion: (state, action: PayloadAction<string>) => {
-      state.filteredCountries = state.countries.filter((country) => country.region.toLowerCase().includes(action.payload.toLowerCase()))
-    }
+      state.filteredCountries = state.countries.filter((country) =>
+        country.region.toLowerCase().includes(action.payload.toLowerCase())
+      );
+    },
   }
 })
 

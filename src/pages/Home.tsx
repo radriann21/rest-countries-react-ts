@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <Main>
       <Header />
-      <section className="max-w-full p-12 flex flex-col">
+      <section className="max-w-full p-4 md:p-12 flex flex-col">
         <InputsContainer />
         <DisplayCountries />
       </section>

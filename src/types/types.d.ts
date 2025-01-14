@@ -46,7 +46,7 @@ export type initialStateType = {
   filteredCountries: CountryMain[],
   loading: boolean,
   error: string | null,
-  country: CountryDetail | null
+  country: CountryDetail | null,
 }
 
 export type customError = {
